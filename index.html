@@ -8,8 +8,6 @@
 </head>
 <body>
     <section class="main__container">
-
-
         <h1 class="title">Finance Tracker</h1>
 
         <span class="balance__text"> Saldo na conta
@@ -18,8 +16,6 @@
 
         <div class="movement">
             <h2 class="movement__title">Deseja adicionar uma movimentação?</h2>
-
-
             <input type="number" name="movement__value" id="movement__value" placeholder="Valor">
             <input type="text" name="movement__establishment" id="movement__establishment" placeholder="Estabelecimento">
             <select name="movement__type" id="movement__type">
@@ -29,7 +25,6 @@
             <button onclick="adicionar()" type="button" id="movement__add">Adicionar</button>
         </div>
 
-
         <div id="movement__history">
             <p>historico de movimentações</p>
         </div>
@@ -38,16 +33,13 @@
             <span class="movement__incomes--text"> Receitas
                 <input type="number" id="movement__incomes" disabled>
             </span>
-
             <span class="movement__expenses--text"> Despesas
                 <input type="number" id="movement__expenses" disabled>
             </span>
-
             <span class="movement__final--text"> Saldo final
                 <input type="number" id="movement__final" disabled>
             </span>
         </div>
-
 
         <button onclick="finalizar()" type="button" id="end">Finalizar</button>
     </section>
