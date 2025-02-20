@@ -1,0 +1,17 @@
+.main__container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+form {
+    width: 40vw;
+    height: 50vh;
+    background-color: aquamarine;
+}
+
+.texto-azul {
+    font-size: 25px;
+    font-weight: 700;
+    color: rgb(67, 67, 233);
+}
