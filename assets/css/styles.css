@@ -104,6 +104,8 @@ body {
 #movement__expenses,
 #movement__final {
     width: 65%;
+    text-align: center;
+    margin-top: .1rem;
 }
 
 #end {
