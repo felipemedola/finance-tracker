@@ -2,6 +2,10 @@
 let totalIncomes = 0;
 let totalExpenses = 0;
 
+document.getElementById('movement__incomes').value = 'R$ 0.00'
+document.getElementById('movement__expenses').value = 'R$ 0.00'
+document.getElementById('movement__final').value = 'R$ 0.00'
+
 function add() {
     let balanceValue = document.getElementById('balance__value').value;
     let movementValue = document.getElementById('movement__value').value;
@@ -42,6 +46,9 @@ function add() {
         let finalBalance = document.getElementById('movement__final');
 
         finalBalance.value = (initialBalance + totalIncomes - totalExpenses).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+
+        document.getElementById('movement__value').value = '';
+        document.getElementById('movement__establishment').value = '';
     }
 }
 
