@@ -81,7 +81,9 @@ body {
 #movement__history {
     width: 100%;
     height: 35vh;
+    padding: .5rem;
     margin: 0 auto;
+    text-align: center;
     border: 0.1rem solid var(--black);
     background-color: var(--white);
 }

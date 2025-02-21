@@ -30,6 +30,7 @@ function add() {
         <span class="texto-azul">Valor: ${movementValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
         Estabelecimento: ${movementName}
         <span class="texto-azul">Tipo: ${movementType}</span>
+        <button onclick="removeMovement()">Excluir</button>
         <br>`
 
         let incomesValue = document.getElementById('movement__incomes');
@@ -55,3 +56,6 @@ function add() {
 function end() {
     window.location.reload();
 }
+
+var Teste = Date.now()
+console.log(Teste)
