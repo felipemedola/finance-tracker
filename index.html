@@ -35,16 +35,22 @@
         </form>
 
         <div class="movement__result">
-            <span class="movement__resume movement__incomes--text"> Receitas
+            <label class="movement__resume">
+                <span class="movement__incomes--text">Receitas</span>
                 <input type="text" id="movement__incomes" disabled>
-            </span>
-            <span class="movement__resume movement__expenses--text"> Despesas
+            </label>
+            
+            <label class="movement__resume">
+                <span class="movement__expenses--text">Despesas</span>
                 <input type="text" id="movement__expenses" disabled>
-            </span>
-            <span class="movement__resume movement__final--text"> Saldo final
+            </label>
+        
+            <label class="movement__resume">
+                <span class="movement__final--text">Saldo Final</span>
                 <input type="text" id="movement__final" disabled>
-            </span>
+            </label>
         </div>
+        
 
         <button onclick="end()" type="button" id="end">Finalizar</button>
     </section>
