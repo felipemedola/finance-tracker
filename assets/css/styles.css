@@ -1,9 +1,13 @@
-:root { 
+:root {
     --body: #A8E6CF;
     --main-container: #F5F5DC;
     --black: #000000;
     --white: #FFFFFF;
+    --delete-btn: #6C757D; 
+    --income-color: #28A745; 
+    --expense-color: #DC3545; 
 }
+
 
 html {
     font-size: 18px;
@@ -81,18 +85,44 @@ body {
 #movement__history {
     width: 100%;
     height: 35vh;
-    padding: .5rem;
     margin: 0 auto;
-    text-align: center;
+    text-align: justify;
     border: 0.1rem solid var(--black);
     background-color: var(--white);
+}
+
+.financial__posting {
+    padding: .5rem 0 0 .2rem;
+}
+
+.movement__name--history {
+    border-right: var(--black) double .2rem;
+    border-left: var(--black) double .2rem;
+    margin: 0 .3rem;
+    padding: 0 .3rem;
+}
+
+.movement__type--incomes {
+    color: var(--income-color);
+    font-weight: 500;
+}
+
+.movement__type--expenses {
+    color: var(--expense-color);
+}
+
+#movement__delete {
+    border: none;
+    padding: 0.2rem 0.6rem;
+    border-radius: 1rem;
+    color: var(--white);
+    background-color: var(--delete-btn);
 }
 
 .movement__result {
     display: flex;
     font-size: 0.9rem;
     margin: 1rem 0 1.5rem;
-    
 }
 
 .movement__resume {
@@ -118,6 +148,7 @@ body {
     font-weight: 700;
     color: var(--white);
     background-color: var(--black);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
 }
 
 

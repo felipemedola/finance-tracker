@@ -27,31 +27,41 @@ function add() {
 
         let movementHistory = document.getElementById('movement__history');
 
+        // Inserido uma variavel e atribuido um ID unico
         let uniqueId = Date.now();
-        console.log(uniqueId)
 
         let movementEntry = document.createElement('div');
         movementEntry.id = `movement-${uniqueId}`;
-        movementEntry.innerHTML = `
+        movementEntry.className = `financial__posting`
+        movementEntry.innerHTML += `
             <span class="movement__value--history">Valor: ${movementValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
-            <span class="movement__name--history">Estabelecimento: ${movementName}</span>
+            <span class="movement__name--history">${movementName}</span>
             <span class="movement__type--history">Tipo: ${movementType}</span>
-            <button onclick="removeMovement(${uniqueId}, ${movementValue}, '${movementType}')">Excluir</button>
+            <button onclick="removeMovement(${uniqueId}, ${movementValue}, '${movementType}')" id="movement__delete">Excluir</button>
         <br>`
 
         movementHistory.appendChild(movementEntry);
 
+        // Leitura da classe referente ao tipo para controle da cor no CSS
+        let typeColor = movementEntry.querySelector('.movement__type--history');
+
+        // Leitura dos campos de resultado das movimentações Receitas e Depesas
         let incomesValue = document.getElementById('movement__incomes');
         let expensesValue = document.getElementById('movement__expenses');
 
         if (movementType == 'Receita') {
+            typeColor.classList.add('movement__type--incomes')
+            typeColor.classList.remove('movement__type--expenses')
             totalIncomes += movementValue;
             incomesValue.value = totalIncomes.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
         } else {
+            typeColor.classList.add('movement__type--expenses')
+            typeColor.classList.remove('movement__type--incomes')
             totalExpenses += movementValue;
             expensesValue.value = totalExpenses.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
         }
 
+        // Leitura do campo de Saldo Final
         let finalBalance = document.getElementById('movement__final');
 
         finalBalance.value = (initialBalance + totalIncomes - totalExpenses).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
