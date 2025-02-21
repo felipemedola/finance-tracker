@@ -26,12 +26,20 @@ function add() {
         let movementType = document.getElementById('movement__type').value;
 
         let movementHistory = document.getElementById('movement__history');
-        movementHistory.innerHTML += `
-        <span class="texto-azul">Valor: ${movementValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
-        Estabelecimento: ${movementName}
-        <span class="texto-azul">Tipo: ${movementType}</span>
-        <button onclick="removeMovement()">Excluir</button>
+
+        let uniqueId = Date.now();
+        console.log(uniqueId)
+
+        let movementEntry = document.createElement('div');
+        movementEntry.id = `movement-${uniqueId}`;
+        movementEntry.innerHTML = `
+            <span class="movement__value--history">Valor: ${movementValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
+            <span class="movement__name--history">Estabelecimento: ${movementName}</span>
+            <span class="movement__type--history">Tipo: ${movementType}</span>
+            <button onclick="removeMovement(${uniqueId}, ${movementValue}, '${movementType}')">Excluir</button>
         <br>`
+
+        movementHistory.appendChild(movementEntry);
 
         let incomesValue = document.getElementById('movement__incomes');
         let expensesValue = document.getElementById('movement__expenses');
@@ -53,9 +61,29 @@ function add() {
     }
 }
 
+function removeMovement(id, movementValue, movementType) {
+    let element = document.getElementById(`movement-${id}`);
+    if (element) {
+        element.remove();
+    }
+
+    let incomesValue = document.getElementById('movement__incomes');
+    let expensesValue = document.getElementById('movement__expenses');
+
+    if (movementType == 'Receita') {
+        totalIncomes -= movementValue;
+        incomesValue.value = totalIncomes.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    } else {
+        totalExpenses -= movementValue;
+        expensesValue.value = totalExpenses.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    }
+
+    let initialBalance = Number(document.getElementById('balance__value').value);
+    let finalBalance = document.getElementById('movement__final');
+
+    finalBalance.value = (initialBalance + totalIncomes - totalExpenses).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+}
+
 function end() {
     window.location.reload();
 }
-
-var Teste = Date.now()
-console.log(Teste)
