@@ -8,6 +8,13 @@
     --expense-color: #DC3545; 
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
 
 html {
     font-size: 18px;
@@ -45,10 +52,10 @@ body {
     margin: 2.3rem 0;
 }
 
-#balance__value{
+#balance__value {
     width: 40%;
     font-size: 0.9rem;
-    margin-left: 0.2rem; 
+    margin-left: 0.15rem; 
 }
 
 .movement__title {
@@ -73,38 +80,48 @@ body {
 }
 
 #movement__add {
-    border: none;
     margin: 0 auto 0.9rem;
+}
+
+#movement__add,
+#end {
+    border: none;
     padding: 0.4rem 1.4rem;
     border-radius: 1rem;
     font-weight: 700;
     color: var(--white);
     background-color: var(--black);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 #movement__history {
     width: 100%;
-    height: 35vh;
+    height: 30vh;
     margin: 0 auto;
-    text-align: justify;
+    padding: 0 0.3rem;
+    overflow-y: auto;
+    text-align: left;
+    font-size: 0.9rem;
     border: 0.1rem solid var(--black);
+    border-radius: 0.5rem;
     background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .financial__posting {
-    padding: .5rem 0 0 .2rem;
+    padding: 0.5rem;
+    border-bottom: 1px dashed var(--black);
 }
 
 .movement__name--history {
-    border-right: var(--black) double .2rem;
-    border-left: var(--black) double .2rem;
-    margin: 0 .3rem;
-    padding: 0 .3rem;
+    border-left: 0.1rem solid var(--black);
+    border-right: 0.1rem solid var(--black);
+    margin: 0 0.15rem;
+    padding: 0 0.15rem;
 }
 
 .movement__type--incomes {
     color: var(--income-color);
-    font-weight: 500;
 }
 
 .movement__type--expenses {
@@ -135,22 +152,14 @@ body {
 #movement__incomes, 
 #movement__expenses,
 #movement__final {
-    width: 65%;
+    width: 85%;
     text-align: center;
     margin-top: .1rem;
 }
 
 #end {
-    border: none;
     margin: 0 auto;
-    padding: 0.4rem 1.4rem;
-    border-radius: 1rem;
-    font-weight: 700;
-    color: var(--white);
-    background-color: var(--black);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
 }
-
 
 @media screen and (min-width: 1024px){
     .movement {
@@ -160,6 +169,21 @@ body {
 
     #movement__history {
         width: 90%;
+        margin: 0 auto;
+        padding: 0 0.15rem;
+    }
+
+    #movement__add,
+    #end,
+    #movement__delete {
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        cursor: pointer;
+    }
+
+    #movement__add:hover,
+    #end:hover,
+    #movement__delete:hover {
+        opacity: 0.8;
     }
 
     #movement__incomes, 
